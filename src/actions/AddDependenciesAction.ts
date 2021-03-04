@@ -2,8 +2,8 @@ import { runCommand } from "../process";
 import { Action } from "./Action";
 
 export class AddDependenciesAction extends Action {
-  constructor(cwd: string, private packages: string[]) {
-    super(cwd);
+  constructor(private packages: string[]) {
+    super();
   }
 
   async exec(): Promise<void> {

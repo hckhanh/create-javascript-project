@@ -26,6 +26,6 @@ export class FormatterFactory {
       return new YAMLFormatter();
     }
 
-    throw new Error("This formatter type not implemented.");
+    throw new Error(`"${type}" formatter not implemented.`);
   }
 }

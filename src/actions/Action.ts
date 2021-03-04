@@ -1,5 +1,5 @@
 export abstract class Action {
-  constructor(protected cwd: string) {}
+  constructor() {}
 
   abstract exec(): Promise<void>;
 }

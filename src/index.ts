@@ -16,20 +16,18 @@ class CreateJavascriptProject extends Command {
 
   async run() {
     const { args, flags } = this.parse(CreateJavascriptProject);
-
     const answers = await collectAnswers();
-    const cwd = process.cwd();
 
     const formatterFactory = FormatterFactory.getInstance();
     const formatter = formatterFactory.createFormatter(answers.format);
 
     const generatorFactory = GeneratorFactory.getInstance();
     const generators = answers.configurations.map((type) =>
-      generatorFactory.createGenerator(type, cwd, answers, formatter),
+      generatorFactory.createGenerator(type, answers, formatter),
     );
 
     for (let i = 0; i < generators.length; i++) {
-      cli.action.start(`generating ${answers.configurations[i]} configurations`);
+      cli.action.start(`generating ${answers.configurations[i]}`);
       await generators[i].run();
       cli.action.stop();
     }

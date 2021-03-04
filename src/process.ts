@@ -1,6 +1,8 @@
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import * as fs from "fs/promises";
 
+export const currentWorkingDir = process.cwd();
+
 export function promisifyChildProcess(
   childProcess: ChildProcessWithoutNullStreams,
 ): Promise<number> {

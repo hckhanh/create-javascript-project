@@ -5,7 +5,7 @@ import { InquirerConfigs } from "../types";
 export abstract class Generator {
   actions: Action[];
 
-  constructor(protected cwd: string, userConfigs: InquirerConfigs, formatter: Formatter) {
+  constructor(userConfigs: InquirerConfigs, formatter: Formatter) {
     const [configs, packages] = this.generateConfigs(userConfigs);
     this.actions = this.initActions(configs, packages, userConfigs, formatter);
   }

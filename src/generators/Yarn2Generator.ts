@@ -1,6 +1,7 @@
 import { Action } from "../actions/Action";
 import { CreateYarn2ConfigsAction } from "../actions/CreateYarn2ConfigsAction";
 import { Formatter } from "../formatters/Formatter";
+import { currentWorkingDir } from "../process";
 import { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
@@ -15,6 +16,6 @@ export class Yarn2Generator extends Generator {
     userConfigs: InquirerConfigs,
     formatter: Formatter,
   ): Action[] {
-    return [new CreateYarn2ConfigsAction(this.cwd, userConfigs)];
+    return [new CreateYarn2ConfigsAction(userConfigs)];
   }
 }

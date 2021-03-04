@@ -16,22 +16,21 @@ export class GeneratorFactory {
 
   createGenerator(
     type: GeneratorType,
-    cwd: string,
     userConfigs: InquirerConfigs,
     formatter: Formatter,
   ): Generator {
     if (type === "eslint") {
-      return new ESLintGenerator(cwd, userConfigs, formatter);
+      return new ESLintGenerator(userConfigs, formatter);
     }
 
     if (type === "prettier") {
-      return new PrettierGenerator(cwd, userConfigs, formatter);
+      return new PrettierGenerator(userConfigs, formatter);
     }
 
     if (type === "yarn2") {
-      return new Yarn2Generator(cwd, userConfigs, formatter);
+      return new Yarn2Generator(userConfigs, formatter);
     }
 
-    throw new Error("This generator type not implemented.");
+    throw new Error(`"${type}" generator not implemented.`);
   }
 }
