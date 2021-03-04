@@ -1,29 +1,39 @@
-import {Command, flags} from '@oclif/command'
+import { Command, flags } from "@oclif/command";
+import { cli } from "cli-ux";
+import { FormatterFactory } from "./formatters/FormatterFactory";
+import { GeneratorFactory } from "./generators/GeneratorFactory";
+import { collectAnswers } from "./inquirer";
 
 class CreateJavascriptProject extends Command {
-  static description = 'describe the command here'
+  static description = "describe the command here";
 
   static flags = {
-    // add --version flag to show CLI version
-    version: flags.version({char: 'v'}),
-    help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
-  }
+    version: flags.version({ char: "v" }),
+    help: flags.help({ char: "h" }),
+  };
 
-  static args = [{name: 'file'}]
+  // static args = [{name: 'file'}]
 
   async run() {
-    const {args, flags} = this.parse(CreateJavascriptProject)
+    const { args, flags } = this.parse(CreateJavascriptProject);
 
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from .\\src\\index.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
+    const answers = await collectAnswers();
+    const cwd = process.cwd();
+
+    const formatterFactory = FormatterFactory.getInstance();
+    const formatter = formatterFactory.createFormatter(answers.format);
+
+    const generatorFactory = GeneratorFactory.getInstance();
+    const generators = answers.configurations.map((type) =>
+      generatorFactory.createGenerator(type, cwd, answers, formatter),
+    );
+
+    for (let i = 0; i < generators.length; i++) {
+      cli.action.start(`generating ${answers.configurations[i]} configurations`);
+      await generators[i].run();
+      cli.action.stop();
     }
   }
 }
 
-export = CreateJavascriptProject
+export = CreateJavascriptProject;

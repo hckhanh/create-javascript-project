@@ -1,5 +1,4 @@
-create-javascript-project
-=========================
+# create-javascript-project
 
 Keep you away from boring procedures for new JavaScript/TypeScript project
 
@@ -9,11 +8,15 @@ Keep you away from boring procedures for new JavaScript/TypeScript project
 [![License](https://img.shields.io/npm/l/create-javascript-project.svg)](https://github.com/hckhanh/create-javascript-project/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g create-javascript-project
 $ create-javascript-project COMMAND
@@ -25,8 +28,11 @@ USAGE
   $ create-javascript-project COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
 
 <!-- commandsstop -->
