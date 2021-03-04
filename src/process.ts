@@ -54,3 +54,7 @@ export async function readContentFromFile(file: string): Promise<string> {
 export async function removeFile(file: string) {
   await fs.rm(file, { force: true });
 }
+
+export function formatJson(obj: object): string {
+  return JSON.stringify(obj, null, 2);
+}

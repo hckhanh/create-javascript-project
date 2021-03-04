@@ -1,4 +1,4 @@
-import { readContentFromFile, withCurrentDir, writeContentToFile } from "../process";
+import { formatJson, readContentFromFile, withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 
 export class AddScriptsAction extends Action {
@@ -11,6 +11,6 @@ export class AddScriptsAction extends Action {
     const packageJson = await readContentFromFile(packageJsonPath);
     const packageJsonObj = JSON.parse(packageJson);
     packageJsonObj.scripts = { ...packageJsonObj.scripts, ...this.scripts };
-    await writeContentToFile(packageJsonPath, JSON.stringify(packageJsonObj, null, 2), "w");
+    await writeContentToFile(packageJsonPath, formatJson(packageJsonObj), "w");
   }
 }
