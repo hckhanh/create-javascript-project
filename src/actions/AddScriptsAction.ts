@@ -1,5 +1,4 @@
-import * as path from "path";
-import { currentWorkingDir, readContentFromFile, writeContentToFile } from "../process";
+import { readContentFromFile, withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 
 export class AddScriptsAction extends Action {
@@ -8,7 +7,7 @@ export class AddScriptsAction extends Action {
   }
 
   async exec(): Promise<void> {
-    const packageJsonPath = path.join(currentWorkingDir, "package.json");
+    const packageJsonPath = withCurrentDir("package.json");
     const packageJson = await readContentFromFile(packageJsonPath);
     const packageJsonObj = JSON.parse(packageJson);
     packageJsonObj.scripts = { ...packageJsonObj.scripts, ...this.scripts };

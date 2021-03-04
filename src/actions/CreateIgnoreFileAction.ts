@@ -1,6 +1,5 @@
-import * as path from "path";
 import { ignoreFiles } from "../configs";
-import { currentWorkingDir, writeContentToFile } from "../process";
+import { withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 
 export class CreateIgnoreFileAction extends Action {
@@ -9,6 +8,6 @@ export class CreateIgnoreFileAction extends Action {
   }
 
   async exec(): Promise<void> {
-    await writeContentToFile(path.join(currentWorkingDir, this.fileName), ignoreFiles);
+    await writeContentToFile(withCurrentDir(this.fileName), ignoreFiles);
   }
 }

@@ -1,6 +1,5 @@
-import * as path from "path";
 import { Formatter } from "../formatters/Formatter";
-import { currentWorkingDir, writeContentToFile } from "../process";
+import { withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 
 export class CreateConfigsFileAction extends Action {
@@ -10,9 +9,6 @@ export class CreateConfigsFileAction extends Action {
 
   async exec() {
     const fileName = this.formatter.formatFileName(this.fileName);
-    await writeContentToFile(
-      path.join(currentWorkingDir, `./${fileName}`),
-      this.formatter.format(this.configs),
-    );
+    await writeContentToFile(withCurrentDir(`./${fileName}`), this.formatter.format(this.configs));
   }
 }

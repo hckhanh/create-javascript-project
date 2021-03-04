@@ -4,7 +4,7 @@ import { AddScriptsAction } from "../actions/AddScriptsAction";
 import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateIgnoreFileAction } from "../actions/CreateIgnoreFileAction";
 import { Formatter } from "../formatters/Formatter";
-import { currentWorkingDir } from "../process";
+import { currentDir } from "../process";
 import { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 

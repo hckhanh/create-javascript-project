@@ -1,7 +1,12 @@
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import * as fs from "fs/promises";
+import * as path from "path";
 
-export const currentWorkingDir = process.cwd();
+export const currentDir = process.cwd();
+
+export function withCurrentDir(...paths: string[]) {
+  return path.join(currentDir, ...paths);
+}
 
 export function promisifyChildProcess(
   childProcess: ChildProcessWithoutNullStreams,
