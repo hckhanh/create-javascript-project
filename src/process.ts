@@ -1,12 +1,12 @@
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
-import * as fs from "fs/promises";
+import { readFile, rm, stat, writeFile } from "fs/promises";
 import { Stats } from "node:fs";
-import * as path from "path";
+import { join } from "path";
 
 export const currentDir = process.cwd();
 
 export function withCurrentDir(...paths: string[]) {
-  return path.join(currentDir, ...paths);
+  return join(currentDir, ...paths);
 }
 
 export function promisifyChildProcess(
@@ -43,7 +43,7 @@ export function runCommand(command: string, args?: string[]): Promise<number> {
 
 export async function getFileStats(file: string): Promise<Stats | undefined> {
   try {
-    return await fs.stat(file);
+    return await stat(file);
   } catch {
     return undefined;
   }
@@ -57,19 +57,19 @@ export async function writeContentToFile(file: string, content: string, flag = "
       throw new Error(`Cannot write content to ${file}`);
     }
 
-    await fs.writeFile(file, `\n${content.trim()}\n`, { flag });
+    await writeFile(file, `\n${content.trim()}\n`, { flag });
   } else {
-    await fs.writeFile(file, `${content.trim()}\n`, { flag });
+    await writeFile(file, `${content.trim()}\n`, { flag });
   }
 }
 
 export async function readContentFromFile(file: string): Promise<string> {
-  const buffer = await fs.readFile(file, { flag: "r" });
+  const buffer = await readFile(file, { flag: "r" });
   return buffer.toString();
 }
 
 export async function removeFile(file: string) {
-  await fs.rm(file, { force: true });
+  await rm(file, { force: true });
 }
 
 export function formatJson(obj: object): string {

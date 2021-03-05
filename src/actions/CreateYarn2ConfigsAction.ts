@@ -1,4 +1,4 @@
-import * as configs from "../configs";
+import { nonZeroInstalls, zeroInstalls } from "../configs";
 import { removeFile, runCommand, withCurrentDir, writeContentToFile } from "../process";
 import { InquirerConfigs } from "../types";
 import { Action } from "./Action";
@@ -27,7 +27,7 @@ export class CreateYarn2ConfigsAction extends Action {
     // Configure .gitignore for yarn
     await writeContentToFile(
       withCurrentDir("./.gitignore"),
-      this.userConfigs.zeroInstalls ? configs.zeroInstalls : configs.nonZeroInstalls,
+      this.userConfigs.zeroInstalls ? zeroInstalls : nonZeroInstalls,
     );
 
     // Install dependencies
