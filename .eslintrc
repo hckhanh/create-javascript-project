@@ -2,6 +2,7 @@
   "extends": ["oclif", "oclif-typescript", "plugin:prettier/recommended"],
   "rules": {
     "quotes": ["error", "double"],
-    "no-await-in-loop": "off"
+    "no-await-in-loop": "off",
+    "unicorn/filename-case": "off"
   }
 }

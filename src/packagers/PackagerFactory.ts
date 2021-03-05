@@ -1,11 +1,12 @@
 import { PackagerType } from "../types";
-import { NPMPackager } from "./NPMPackager";
+import { NpmPackager } from "./NpmPackager";
 import { Packager } from "./Packager";
 import { YarnPackager } from "./YarnPackager";
 
 export class PackagerFactory {
   private static factory: PackagerFactory = new PackagerFactory();
 
+  // eslint-disable-next-line no-useless-constructor,@typescript-eslint/no-empty-function
   private constructor() {}
 
   public static getInstance() {
@@ -18,7 +19,7 @@ export class PackagerFactory {
     }
 
     if (type === "npm") {
-      return new NPMPackager();
+      return new NpmPackager();
     }
 
     throw new Error(`"${type}" packager not implemented.`);

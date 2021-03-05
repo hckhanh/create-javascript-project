@@ -1,7 +1,7 @@
 import { formatJson } from "../process";
 import { Formatter } from "./Formatter";
 
-export class JSONFormatter extends Formatter {
+export class JsonFormatter extends Formatter {
   format(configs: object) {
     return formatJson(configs);
   }

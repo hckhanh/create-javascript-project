@@ -1,6 +1,6 @@
-import { JSONFormatter } from "./JSONFormatter";
+import { JsonFormatter } from "./JsonFormatter";
 
-export class JSFormatter extends JSONFormatter {
+export class JsFormatter extends JsonFormatter {
   format(configs: object) {
     const jsonObj = super.format(configs);
     return "module.exports = ".concat(jsonObj);
