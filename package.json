@@ -93,7 +93,11 @@
   "scripts": {
     "prepack": "rimraf lib && tsc -b && oclif-dev readme",
     "test": "echo NO TESTS",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "format": "prettier --write .",
+    "checks": "yarn check:prettier && yarn check:eslint",
+    "check:prettier": "prettier --check .",
+    "check:eslint": "eslint ."
   },
   "types": "lib/index.d.ts"
 }
