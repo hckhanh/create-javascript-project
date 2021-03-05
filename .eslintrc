@@ -1,6 +1,7 @@
 {
   "extends": ["oclif", "oclif-typescript", "plugin:prettier/recommended"],
   "rules": {
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "no-await-in-loop": "off"
   }
 }

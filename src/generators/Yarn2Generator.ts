@@ -1,7 +1,6 @@
 import { Action } from "../actions/Action";
 import { CreateYarn2ConfigsAction } from "../actions/CreateYarn2ConfigsAction";
 import { Formatter } from "../formatters/Formatter";
-import { currentDir } from "../process";
 import { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 

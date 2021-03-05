@@ -5,7 +5,6 @@ import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateIgnoreFileAction } from "../actions/CreateIgnoreFileAction";
 import { eslintBaseConfigs } from "../configs";
 import { Formatter } from "../formatters/Formatter";
-import { currentDir } from "../process";
 import { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 

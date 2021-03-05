@@ -8,6 +8,7 @@ import { Yarn2Generator } from "./Yarn2Generator";
 export class GeneratorFactory {
   private static factory: GeneratorFactory = new GeneratorFactory();
 
+  // eslint-disable-next-line no-useless-constructor,@typescript-eslint/no-empty-function
   private constructor() {}
 
   public static getInstance() {
