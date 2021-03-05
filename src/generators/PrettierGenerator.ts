@@ -31,10 +31,10 @@ export class PrettierGenerator extends Generator {
     return [
       new CreateConfigsFileAction(".prettierrc", configs, formatter),
       new CreateIgnoreFileAction(".prettierignore"),
-      new AddScriptsAction({
-        format: "prettier --write .",
-        "check:prettier": "prettier --check .",
-      }),
+      new AddScriptsAction(
+        { format: "prettier --write .", "check:prettier": "prettier --check ." },
+        userConfigs.scripts,
+      ),
       new AddDependenciesAction(packages, packager),
     ];
   }

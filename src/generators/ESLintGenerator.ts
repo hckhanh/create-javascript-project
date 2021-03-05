@@ -74,7 +74,7 @@ export class ESLintGenerator extends Generator {
     return [
       new CreateConfigsFileAction(".eslintrc", configs, formatter),
       new CreateIgnoreFileAction(".eslintignore"),
-      new AddScriptsAction({ "check:eslint": "eslint ." }),
+      new AddScriptsAction({ "check:eslint": "eslint ." }, userConfigs.scripts),
       new AddDependenciesAction(packages, packager),
     ];
   }
