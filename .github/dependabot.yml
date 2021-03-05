@@ -1,0 +1,27 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      timezone: "Asia/Saigon"
+      time: "00:00"
+    target-branch: "main"
+    open-pull-requests-limit: 20
+    reviewers:
+      - "hckhanh"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      timezone: "Asia/Saigon"
+      time: "15:30"
+    target-branch: "main"
+    open-pull-requests-limit: 20
+    reviewers:
+      - "hckhanh"
+    commit-message:
+      prefix: "build"
