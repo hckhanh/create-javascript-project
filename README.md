@@ -2,10 +2,11 @@
 
 Keep you away from boring procedures for new JavaScript/TypeScript project
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![Release](https://github.com/hckhanh/create-javascript-project/actions/workflows/release.yml/badge.svg)](https://github.com/hckhanh/create-javascript-project/actions/workflows/release.yml)
 [![Version](https://img.shields.io/npm/v/create-javascript-project.svg)](https://npmjs.org/package/create-javascript-project)
 [![Downloads/week](https://img.shields.io/npm/dw/create-javascript-project.svg)](https://npmjs.org/package/create-javascript-project)
 [![License](https://img.shields.io/npm/l/create-javascript-project.svg)](https://github.com/hckhanh/create-javascript-project/blob/master/package.json)
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
 <!-- toc -->
 
