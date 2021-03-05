@@ -2,7 +2,7 @@ import { prompt } from "inquirer";
 import { GeneratorType, InquirerConfigs, Module } from "./types";
 
 export async function collectAnswers(): Promise<InquirerConfigs> {
-  return prompt<InquirerConfigs>([
+  const answers = await prompt<InquirerConfigs>([
     {
       type: "checkbox",
       name: "configurations",
@@ -84,7 +84,23 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
     {
       type: "confirm",
       name: "scripts",
-      message: "Do want to add test scripts to package.json?",
+      message: "Do want to add according scripts to package.json?",
+    },
+    {
+      type: "list",
+      name: "packager",
+      message: "Which package manager does your project use?",
+      choices: [
+        { name: "Yarn", value: "yarn" },
+        { name: "NPM", value: "npm" },
+      ],
+      when: (answers) => !answers.configurations.includes("yarn2"),
     },
   ]);
+
+  if (answers.configurations.includes("yarn2")) {
+    answers.packager = "yarn";
+  }
+
+  return answers;
 }

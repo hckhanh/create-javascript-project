@@ -10,6 +10,8 @@ export type ConfigsFileFormat = "js" | "json" | "yml";
 
 export type GeneratorType = "yarn2" | "eslint" | "prettier";
 
+export type PackagerType = "yarn" | "npm";
+
 export type ESLintConfigs = {
   framework: Framework;
   module: Module;
@@ -20,6 +22,7 @@ export type ESLintConfigs = {
 export type InquirerConfigs = {
   configurations: GeneratorType[];
   format: ConfigsFileFormat;
+  packager: PackagerType;
   scripts: boolean;
 } & Yarn2Configs &
   ESLintConfigs;

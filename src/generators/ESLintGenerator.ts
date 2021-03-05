@@ -5,6 +5,7 @@ import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateIgnoreFileAction } from "../actions/CreateIgnoreFileAction";
 import { eslintBaseConfigs } from "../configs";
 import { Formatter } from "../formatters/Formatter";
+import { Packager } from "../packagers/Packager";
 import { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
@@ -68,12 +69,13 @@ export class ESLintGenerator extends Generator {
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,
+    packager: Packager,
   ): Action[] {
     return [
       new CreateConfigsFileAction(".eslintrc", configs, formatter),
       new CreateIgnoreFileAction(".eslintignore"),
       new AddScriptsAction({ "check:eslint": "eslint ." }),
-      new AddDependenciesAction(packages),
+      new AddDependenciesAction(packages, packager),
     ];
   }
 }

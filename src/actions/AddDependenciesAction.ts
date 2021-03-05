@@ -1,12 +1,12 @@
-import { runCommand } from "../process";
+import { Packager } from "../packagers/Packager";
 import { Action } from "./Action";
 
 export class AddDependenciesAction extends Action {
-  constructor(private packages: string[]) {
+  constructor(private packages: string[], private packager: Packager) {
     super();
   }
 
   async exec(): Promise<void> {
-    await runCommand("yarn.cmd", ["add", "--dev", ...this.packages]);
+    await this.packager.installDependencies(this.packages);
   }
 }

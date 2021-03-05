@@ -4,6 +4,7 @@ import { AddScriptsAction } from "../actions/AddScriptsAction";
 import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateIgnoreFileAction } from "../actions/CreateIgnoreFileAction";
 import { Formatter } from "../formatters/Formatter";
+import { Packager } from "../packagers/Packager";
 import { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
@@ -25,6 +26,7 @@ export class PrettierGenerator extends Generator {
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,
+    packager: Packager,
   ): Action[] {
     return [
       new CreateConfigsFileAction(".prettierrc", configs, formatter),
@@ -33,7 +35,7 @@ export class PrettierGenerator extends Generator {
         format: "prettier --write .",
         "check:prettier": "prettier --check .",
       }),
-      new AddDependenciesAction(packages),
+      new AddDependenciesAction(packages, packager),
     ];
   }
 }

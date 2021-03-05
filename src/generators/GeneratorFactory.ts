@@ -1,4 +1,5 @@
 import { Formatter } from "../formatters/Formatter";
+import { Packager } from "../packagers/Packager";
 import { GeneratorType, InquirerConfigs } from "../types";
 import { ESLintGenerator } from "./ESLintGenerator";
 import { Generator } from "./Generator";
@@ -19,17 +20,18 @@ export class GeneratorFactory {
     type: GeneratorType,
     userConfigs: InquirerConfigs,
     formatter: Formatter,
+    packager: Packager,
   ): Generator {
     if (type === "eslint") {
-      return new ESLintGenerator(userConfigs, formatter);
+      return new ESLintGenerator(userConfigs, formatter, packager);
     }
 
     if (type === "prettier") {
-      return new PrettierGenerator(userConfigs, formatter);
+      return new PrettierGenerator(userConfigs, formatter, packager);
     }
 
     if (type === "yarn2") {
-      return new Yarn2Generator(userConfigs, formatter);
+      return new Yarn2Generator(userConfigs, formatter, packager);
     }
 
     throw new Error(`"${type}" generator not implemented.`);

@@ -4,6 +4,7 @@ import { checkPackageJson } from "./checker";
 import { FormatterFactory } from "./formatters/FormatterFactory";
 import { GeneratorFactory } from "./generators/GeneratorFactory";
 import { collectAnswers } from "./inquirer";
+import { PackagerFactory } from "./packagers/PackagerFactory";
 
 class CreateJavascriptProject extends Command {
   static description = `Keep you away from boring procedures for new JavaScript/TypeScript project.1
@@ -24,17 +25,18 @@ class CreateJavascriptProject extends Command {
 
   async run() {
     this.parse(CreateJavascriptProject);
-
     await checkPackageJson();
-
     const answers = await collectAnswers();
 
     const formatterFactory = FormatterFactory.getInstance();
     const formatter = formatterFactory.createFormatter(answers.format);
 
+    const packagerFactory = PackagerFactory.getInstance();
+    const packager = packagerFactory.createPackager(answers.packager);
+
     const generatorFactory = GeneratorFactory.getInstance();
     const generators = answers.configurations.map((type) =>
-      generatorFactory.createGenerator(type, answers, formatter),
+      generatorFactory.createGenerator(type, answers, formatter, packager),
     );
 
     for (let i = 0; i < generators.length; i++) {
