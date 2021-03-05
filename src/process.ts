@@ -1,5 +1,6 @@
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import * as fs from "fs/promises";
+import { Stats } from "node:fs";
 import * as path from "path";
 
 export const currentDir = process.cwd();
@@ -26,12 +27,10 @@ export function promisifyChildProcess(
     childProcess.once("close", (code) => {
       if (code === 0) {
         resolve(code);
+      } else if (error) {
+        reject(new Error(error.message));
       } else {
-        if (error) {
-          reject(new Error(error.message));
-        } else {
-          reject(errorChunks.join("\n"));
-        }
+        reject(errorChunks.join("\n"));
       }
     });
   });
@@ -42,8 +41,26 @@ export function runCommand(command: string, args?: string[]): Promise<number> {
   return promisifyChildProcess(result);
 }
 
+export async function getFileStats(file: string): Promise<Stats | undefined> {
+  try {
+    return await fs.stat(file);
+  } catch {
+    return undefined;
+  }
+}
+
 export async function writeContentToFile(file: string, content: string, flag = "a+") {
-  await fs.writeFile(file, content, { flag });
+  const stats = await getFileStats(file);
+
+  if (stats) {
+    if (stats.isDirectory()) {
+      throw new Error(`Cannot write content to ${file}`);
+    }
+
+    await fs.writeFile(file, `\n${content.trim()}\n`, { flag });
+  } else {
+    await fs.writeFile(file, `${content.trim()}\n`, { flag });
+  }
 }
 
 export async function readContentFromFile(file: string): Promise<string> {

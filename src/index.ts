@@ -27,7 +27,7 @@ class CreateJavascriptProject extends Command {
     );
 
     for (let i = 0; i < generators.length; i++) {
-      cli.action.start(`generating ${answers.configurations[i]}`);
+      cli.action.start(`Generating ${answers.configurations[i]}`);
       await generators[i].run();
       cli.action.stop();
     }
