@@ -9,30 +9,44 @@ Keep you away from boring procedures for new JavaScript/TypeScript project
 
 <!-- toc -->
 
+- [Description](#description)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
 
-# Usage
+## Description
 
-<!-- usage -->
+The following configurations of the common tools will be generated
 
-```sh-session
-$ npm install -g create-javascript-project
-$ create-javascript-project COMMAND
-running command...
-$ create-javascript-project (-v|--version|version)
-create-javascript-project/0.0.0 win32-x64 node-v14.16.0
-$ create-javascript-project --help [COMMAND]
-USAGE
-  $ create-javascript-project COMMAND
-...
+- Yarn 2 (.yarn, .yarnrc.yml)
+- ESLint (.eslintignore, .eslintrc)
+- Prettier (.prettierrc)
+
+You can choose which tool you want to set up
+
+## Usage
+
+The following step which are executed:
+
+1. Generate/update configurations
+1. Create/update ignore files
+1. Add necessary dependencies
+1. Add scripts to `package.json` (optional)
+
+## Commands
+
+You can run by these commands:
+
+```shell
+# npm
+npx create-javascript-project
+
+# yarn
+yarn create javascript-project
+
+# yarn 2
+yarn dlx create-javascript-project
 ```
 
-<!-- usagestop -->
-
-# Commands
-
-<!-- commands -->
-
-<!-- commandsstop -->
+> Technically, this tool is used for existing project.
+> It must be run in a project directory with `package.json` file.

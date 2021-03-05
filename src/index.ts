@@ -5,17 +5,24 @@ import { GeneratorFactory } from "./generators/GeneratorFactory";
 import { collectAnswers } from "./inquirer";
 
 class CreateJavascriptProject extends Command {
-  static description = "describe the command here";
+  static description = `Keep you away from boring procedures for new JavaScript/TypeScript project.1
+  The following step which are executed:
+    1. Generate/update configurations
+    2. Create/update ignore files
+    3. Add necessary dependencies
+    4. Add accordingly scripts to "package.json" (optional)
+
+  Note: technically, this tool is used for existing project.
+  It must be run in a project directory with "package.json" file.
+`;
 
   static flags = {
     version: flags.version({ char: "v" }),
     help: flags.help({ char: "h" }),
   };
 
-  // static args = [{name: 'file'}]
-
   async run() {
-    const { args, flags } = this.parse(CreateJavascriptProject);
+    this.parse(CreateJavascriptProject);
     const answers = await collectAnswers();
 
     const formatterFactory = FormatterFactory.getInstance();
