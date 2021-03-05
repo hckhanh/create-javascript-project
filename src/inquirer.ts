@@ -41,6 +41,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "React", value: "react" },
         { name: "None", value: "none" },
       ],
+      when: (answers) => answers.configurations.includes("eslint"),
     },
     {
       type: "list",
@@ -50,6 +51,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "JavaScript modules (import/export)", value: "esm" },
         { name: "CommonJS (require/exports)", value: "commonjs" },
       ],
+      when: (answers) => answers.configurations.includes("eslint"),
       validate: (input: Module, answers) => {
         return input === "commonjs" && answers?.framework === "react"
           ? "You cannot use React with commonjs"
@@ -60,7 +62,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       type: "confirm",
       name: "typescript",
       message: "Does your project use TypeScript?",
-      when: (answers) => answers.module !== "commonjs",
+      when: (answers) => answers.configurations.includes("eslint") && answers.module !== "commonjs",
       default: (answers: InquirerConfigs) => answers.framework === "react",
     },
     {
@@ -71,6 +73,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "Browser", value: "browser" },
         { name: "Node", value: "node" },
       ],
+      when: (answers) => answers.configurations.includes("eslint"),
       default: (answers: InquirerConfigs) => {
         if (answers.framework === "react") {
           return ["browser"];
@@ -84,7 +87,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
     {
       type: "confirm",
       name: "scripts",
-      message: "Do want to add according scripts to package.json?",
+      message: "Do want to add commands (scripts) of configurations to package.json?",
     },
     {
       type: "list",
