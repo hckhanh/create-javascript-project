@@ -1,5 +1,6 @@
 import { Command, flags } from "@oclif/command";
 import { cli } from "cli-ux";
+import { checkPackageJson } from "./checker";
 import { FormatterFactory } from "./formatters/FormatterFactory";
 import { GeneratorFactory } from "./generators/GeneratorFactory";
 import { collectAnswers } from "./inquirer";
@@ -23,6 +24,9 @@ class CreateJavascriptProject extends Command {
 
   async run() {
     this.parse(CreateJavascriptProject);
+
+    await checkPackageJson();
+
     const answers = await collectAnswers();
 
     const formatterFactory = FormatterFactory.getInstance();

@@ -1,14 +1,10 @@
-import * as fs from "fs/promises";
-import * as path from "path";
+import { getFileStats, withCurrentDir } from "./process";
 
-function checkPackageJson() {}
-
-function checkExistFile(files: string[], regex: RegExp) {
-  return files.find((value) => regex.test(value));
+export async function checkPackageJson() {
+  const stats = await getFileStats(withCurrentDir("package.json"));
+  if (!stats) {
+    throw new Error(
+      "package.json is not found. Must be run in existing project directory is required.",
+    );
+  }
 }
-
-const yarn2Regex = /.yarn|.yarnrc.yml/;
-const eslintRegex = /\.eslintrc\.?/;
-const prettierRegex = /\.prettierrc\.?/;
-
-function checkExistConfigurations() {}
