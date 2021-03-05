@@ -10,16 +10,16 @@ export class CreateYarn2ConfigsAction extends Action {
 
   async exec(): Promise<void> {
     // Lock Yarn 2 version
-    await runCommand("yarn.cmd", ["set", "version", "berry"]);
+    await runCommand("yarn", ["set", "version", "berry"]);
 
     // Set nodeLinker mode to "node-modules"
     await writeContentToFile(withCurrentDir("./.yarnrc.yml"), "nodeLinker: node-modules");
 
     // Add plugins
-    await runCommand("yarn.cmd", ["plugin", "import", "typescript"]);
-    await runCommand("yarn.cmd", ["plugin", "import", "interactive-tools"]);
-    await runCommand("yarn.cmd", ["plugin", "import", "stage"]);
-    await runCommand("yarn.cmd", ["plugin", "import", "version"]);
+    await runCommand("yarn", ["plugin", "import", "typescript"]);
+    await runCommand("yarn", ["plugin", "import", "interactive-tools"]);
+    await runCommand("yarn", ["plugin", "import", "stage"]);
+    await runCommand("yarn", ["plugin", "import", "version"]);
 
     // Remove old .yarnrc
     await removeFile(withCurrentDir("./.yarnrc"));
@@ -31,6 +31,6 @@ export class CreateYarn2ConfigsAction extends Action {
     );
 
     // Install dependencies
-    await runCommand("yarn.cmd");
+    await runCommand("yarn");
   }
 }
