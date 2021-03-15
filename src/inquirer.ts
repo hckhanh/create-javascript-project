@@ -32,6 +32,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       name: "zeroInstalls",
       message: "Does your project use Zero-Installs (Yarn 2)?",
       when: (answers) => answers.configurations.includes("yarn2"),
+      default: false,
     },
     {
       type: "list",
