@@ -12,7 +12,7 @@ import { Generator } from "./Generator";
 export class ESLintGenerator extends Generator {
   generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
     const configs: any = eslintBaseConfigs;
-    const packages = [];
+    const packages = ["eslint"];
 
     if (userConfigs.environment.includes("browser")) {
       configs.env.browser = true;
@@ -49,12 +49,12 @@ export class ESLintGenerator extends Generator {
         ...configs.rules,
         "flowtype/no-types-missing-file-annotation": "off",
       };
-      packages.push("eslint-plugin-flowtype");
+      packages.push("babel-eslint", "eslint-plugin-flowtype");
     } else if (userConfigs.typescript) {
       configs.extends.push("plugin:@typescript-eslint/recommended");
       configs.parser = "@typescript-eslint/parser";
       configs.plugins.push("@typescript-eslint");
-      packages.push("@typescript-eslint/eslint-plugin", "@typescript-eslint/parser");
+      packages.push("typescript", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser");
     }
 
     if (userConfigs.module === "esm") {
