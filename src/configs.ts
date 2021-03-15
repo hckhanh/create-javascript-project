@@ -32,10 +32,29 @@ export const eslintBaseConfigs = {
   rules: {},
 };
 
-export const ignoreFiles = `build
+export const ignoreFiles = `
+build
 dist
 lib
 coverage
 .yarn
 te?mp
+`;
+
+export const flowConfigs = `
+[ignore]
+<PROJECT_ROOT>/node_modules/.*
+<PROJECT_ROOT>/\(build\|dist\|lib\)/.*
+<PROJECT_ROOT>/\(\.yarn\|te?mp\)/.*
+<PROJECT_ROOT>/coverage/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
 `;

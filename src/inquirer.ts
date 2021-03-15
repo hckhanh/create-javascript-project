@@ -11,6 +11,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "Yarn 2 (Berry)", value: "yarn2" },
         { name: "ESLint", value: "eslint" },
         { name: "Prettier", value: "prettier" },
+        { name: "Flow", value: "flow" },
       ],
       default: ["yarn2", "eslint", "prettier"],
       validate: (input: GeneratorType[]) => {
@@ -63,8 +64,8 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       type: "confirm",
       name: "typescript",
       message: "Does your project use TypeScript?",
-      when: (answers) => answers.configurations.includes("eslint") && answers.module !== "commonjs",
-      default: (answers: InquirerConfigs) => answers.framework === "react",
+      when: (answers) => !answers.configurations.includes("flow") && answers.module !== "commonjs",
+      default: (answers: InquirerConfigs) => answers.framework !== "none",
     },
     {
       type: "checkbox",

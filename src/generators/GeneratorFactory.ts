@@ -2,6 +2,7 @@ import { Formatter } from "../formatters/Formatter";
 import { Packager } from "../packagers/Packager";
 import { GeneratorType, InquirerConfigs } from "../types";
 import { ESLintGenerator } from "./ESLintGenerator";
+import { FlowGenerator } from "./FlowGenerator";
 import { Generator } from "./Generator";
 import { PrettierGenerator } from "./PrettierGenerator";
 import { Yarn2Generator } from "./Yarn2Generator";
@@ -32,6 +33,10 @@ export class GeneratorFactory {
 
     if (type === "yarn2") {
       return new Yarn2Generator(userConfigs, formatter, packager);
+    }
+
+    if (type === "flow") {
+      return new FlowGenerator(userConfigs, formatter, packager);
     }
 
     throw new Error(`"${type}" generator not implemented.`);
