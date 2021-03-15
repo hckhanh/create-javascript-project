@@ -14,11 +14,14 @@ export function promisifyChildProcess(
   childProcess: ChildProcessWithoutNullStreams,
 ): Promise<number> {
   return new Promise((resolve, reject) => {
-    let error: Error;
     const errorChunks: string[] = [];
 
-    childProcess.once("error", (data) => {
-      error = data;
+    childProcess.once("error", (error) => {
+      reject(error);
+    });
+
+    childProcess.stdout.once("error", (error) => {
+      reject(error);
     });
 
     childProcess.stderr.on("data", (data) => {
@@ -26,13 +29,12 @@ export function promisifyChildProcess(
     });
 
     // Fix problem with stdout stream
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     childProcess.stdout.on("data", () => {});
 
     childProcess.once("close", (code) => {
       if (code === 0) {
         resolve(code);
-      } else if (error) {
-        reject(new Error(error.message));
       } else {
         reject(errorChunks.join("\n"));
       }
