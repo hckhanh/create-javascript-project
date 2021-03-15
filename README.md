@@ -8,12 +8,7 @@ Keep you away from boring procedures for new JavaScript/TypeScript project
 [![License](https://img.shields.io/npm/l/create-javascript-project.svg)](https://github.com/hckhanh/create-javascript-project/blob/master/package.json)
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
-<!-- toc -->
-
-- [Description](#description)
-- [Usage](#usage)
-- [Commands](#commands)
-<!-- tocstop -->
+<!-- toc --><!-- tocstop -->
 
 ## Description
 
@@ -34,6 +29,8 @@ The following step which are executed:
 1. Add necessary dependencies
 1. Add scripts to `package.json` (optional)
 
+<!-- usage --><!-- usagestop -->
+
 ## Commands
 
 You can run by these commands:
@@ -51,3 +48,5 @@ yarn dlx create-javascript-project
 
 > Technically, this tool is used for existing project.
 > It must be run in a project directory with `package.json` file.
+
+<!-- commands --><!-- commandsstop -->
