@@ -42,7 +42,15 @@ export class ESLintGenerator extends Generator {
       packages.push("eslint-plugin-react");
     }
 
-    if (userConfigs.typescript) {
+    if (userConfigs.configurations.includes("flow")) {
+      configs.extends.push("plugin:flowtype/recommended");
+      configs.plugins.push("flowtype");
+      configs.rules = {
+        ...configs.rules,
+        "flowtype/no-types-missing-file-annotation": "off",
+      };
+      packages.push("eslint-plugin-flowtype");
+    } else if (userConfigs.typescript) {
       configs.extends.push("plugin:@typescript-eslint/recommended");
       configs.parser = "@typescript-eslint/parser";
       configs.plugins.push("@typescript-eslint");
