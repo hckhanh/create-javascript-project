@@ -25,6 +25,9 @@ export function promisifyChildProcess(
       errorChunks.push(data);
     });
 
+    // Fix problem with stdout stream
+    childProcess.stdout.on("data", () => {});
+
     childProcess.once("close", (code) => {
       if (code === 0) {
         resolve(code);
