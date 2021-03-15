@@ -23,8 +23,8 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       name: "format",
       message: "What format do you want your configurations to be in?",
       choices: [
-        { name: "JavaScript", value: "js" },
         { name: "JSON", value: "json" },
+        { name: "JavaScript", value: "js" },
         { name: "YAML", value: "yml" },
       ],
     },
