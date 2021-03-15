@@ -16,7 +16,7 @@ export class CreateYarn2ConfigsAction extends Action {
     await writeContentToFile(withCurrentDir("./.yarnrc.yml"), "nodeLinker: node-modules");
 
     // Add plugins
-    await runCommand("yarn", ["plugin", "import", "typescript"]);
+    this.userConfigs.typescript && (await runCommand("yarn", ["plugin", "import", "typescript"]));
     await runCommand("yarn", ["plugin", "import", "interactive-tools"]);
     await runCommand("yarn", ["plugin", "import", "stage"]);
     await runCommand("yarn", ["plugin", "import", "version"]);
