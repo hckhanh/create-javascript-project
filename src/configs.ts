@@ -1,5 +1,5 @@
 export const zeroInstalls = `
-# yarn (Zero-Installs) - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+# yarn 2 (Zero-Installs)
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -10,7 +10,7 @@ export const zeroInstalls = `
 `;
 
 export const nonZeroInstalls = `
-# yarn (Zero-Installs) - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+# yarn 2
 .yarn/*
 !.yarn/patches
 !.yarn/releases
