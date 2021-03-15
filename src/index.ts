@@ -28,6 +28,10 @@ class CreateJavascriptProject extends Command {
     await checkPackageJson();
     const answers = await collectAnswers();
 
+    if (answers.configurations.includes("flow") || answers.framework !== "none") {
+      answers.module = "esm";
+    }
+
     const formatterFactory = FormatterFactory.getInstance();
     const formatter = formatterFactory.createFormatter(answers.format);
 

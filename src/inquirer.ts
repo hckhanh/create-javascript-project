@@ -1,5 +1,5 @@
 import { prompt } from "inquirer";
-import { GeneratorType, InquirerConfigs, Module } from "./types";
+import { GeneratorType, InquirerConfigs } from "./types";
 
 export async function collectAnswers(): Promise<InquirerConfigs> {
   const answers = await prompt<InquirerConfigs>([
@@ -53,11 +53,6 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "CommonJS (require/exports)", value: "commonjs" },
       ],
       when: (answers) => !answers.configurations.includes("flow") && answers.framework === "none",
-      validate: (input: Module, answers) => {
-        return input === "commonjs" && answers?.framework === "react"
-          ? "You cannot use React with commonjs"
-          : true;
-      },
     },
     {
       type: "confirm",
