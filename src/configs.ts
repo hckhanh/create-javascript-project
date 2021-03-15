@@ -36,4 +36,6 @@ export const ignoreFiles = `build
 dist
 lib
 coverage
+.yarn
+te?mp
 `;
