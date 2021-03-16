@@ -36,7 +36,7 @@ export function promisifyChildProcess(
       if (code === 0) {
         resolve(code);
       } else {
-        reject(errorChunks.join("\n"));
+        reject(new Error(errorChunks.join("\n")));
       }
     });
   });
