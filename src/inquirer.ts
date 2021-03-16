@@ -8,10 +8,10 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       name: "configurations",
       message: "Which configurations do you want to use?",
       choices: [
-        { name: "Yarn 2 (Berry)", value: "yarn2" },
         { name: "ESLint", value: "eslint" },
         { name: "Prettier", value: "prettier" },
         { name: "Flow", value: "flow" },
+        { name: "Yarn 2 (Berry)", value: "yarn2" },
       ],
       default: ["yarn2", "eslint", "prettier"],
       validate: (input: GeneratorType[]) => {
