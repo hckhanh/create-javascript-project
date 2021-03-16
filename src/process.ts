@@ -15,6 +15,7 @@ export function promisifyChildProcess(
 ): Promise<number> {
   return new Promise((resolve, reject) => {
     const errorChunks: string[] = [];
+    let lastOutput: string;
 
     childProcess.once("error", (error) => {
       reject(error);
@@ -30,11 +31,15 @@ export function promisifyChildProcess(
 
     // Fix problem with stdout stream
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    childProcess.stdout.on("data", () => {});
+    childProcess.stdout.on("data", (data) => {
+      lastOutput = data.toString();
+    });
 
     childProcess.once("close", (code) => {
       if (code === 0) {
         resolve(code);
+      } else if (errorChunks.length === 0) {
+        reject(new Error(lastOutput));
       } else {
         reject(new Error(errorChunks.join("\n")));
       }
