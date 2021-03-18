@@ -3,7 +3,8 @@ import { Formatter } from "./Formatter";
 
 export class IniFormatter extends Formatter {
   format(configs: object) {
-    return encode(configs);
+    const iniConfigs = encode(configs);
+    return iniConfigs.replace(/\.\*=true/g, ".*");
   }
 
   formatFileName(fileName: string): string {
