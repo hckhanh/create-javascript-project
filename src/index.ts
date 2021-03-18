@@ -27,6 +27,7 @@ class CreateJavascriptProject extends Command {
     this.parse(CreateJavascriptProject);
     await checkPackageJson();
     const answers = await collectAnswers();
+    answers.configurations.push("post");
 
     if (answers.configurations.includes("flow") || answers.framework !== "none") {
       answers.module = "esm";

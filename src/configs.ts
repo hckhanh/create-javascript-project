@@ -41,6 +41,12 @@ coverage
 te?mp
 `;
 
+export const postIgnoreFiles = `
+# Editors
+.idea
+.vscode
+`;
+
 export const flowConfigs = `
 [ignore]
 <PROJECT_ROOT>/node_modules/.*

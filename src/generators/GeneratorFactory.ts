@@ -4,6 +4,7 @@ import { GeneratorType, InquirerConfigs } from "../types";
 import { ESLintGenerator } from "./ESLintGenerator";
 import { FlowGenerator } from "./FlowGenerator";
 import { Generator } from "./Generator";
+import { PostGenerator } from "./PostGenerator";
 import { PrettierGenerator } from "./PrettierGenerator";
 import { Yarn2Generator } from "./Yarn2Generator";
 
@@ -37,6 +38,10 @@ export class GeneratorFactory {
 
     if (type === "flow") {
       return new FlowGenerator(userConfigs, formatter, packager);
+    }
+
+    if (type === "post") {
+      return new PostGenerator(userConfigs, formatter, packager);
     }
 
     throw new Error(`"${type}" generator not implemented.`);

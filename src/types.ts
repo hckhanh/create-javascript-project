@@ -8,7 +8,7 @@ export type Environment = "browser" | "node";
 
 export type ConfigsFileFormat = "js" | "json" | "yml";
 
-export type GeneratorType = "yarn2" | "eslint" | "prettier" | "flow";
+export type GeneratorType = "yarn2" | "eslint" | "prettier" | "flow" | "post";
 
 export type PackagerType = "yarn" | "npm";
 

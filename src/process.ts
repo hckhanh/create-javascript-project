@@ -65,7 +65,7 @@ export async function writeContentToFile(file: string, content: string, flag = "
 
   if (stats) {
     if (stats.isDirectory()) {
-      throw new Error(`Cannot write content to ${file}`);
+      throw new Error(`Cannot write content to a folder (${file})`);
     }
 
     await writeFile(file, `\n${content.trim()}\n`, { flag });
