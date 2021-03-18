@@ -47,20 +47,18 @@ export const postIgnoreFiles = `
 .vscode
 `;
 
-export const flowConfigs = `
-[ignore]
-<PROJECT_ROOT>/node_modules/.*
-<PROJECT_ROOT>/\(build\|dist\|lib\)/.*
-<PROJECT_ROOT>/\(\.yarn\|te?mp\)/.*
-<PROJECT_ROOT>/coverage/.*
-
-[include]
-
-[libs]
-
-[lints]
-
-[options]
-
-[strict]
-`;
+export const flowConfigs = {
+  ignore: {
+    "<PROJECT_ROOT>/node_modules/.*": true,
+    "<PROJECT_ROOT>/\\(build\\|dist\\|lib\\)/.*": true,
+    "<PROJECT_ROOT>/\\(\\.yarn\\|te?mp\\)/.*": true,
+    "<PROJECT_ROOT>/coverage/.*": true,
+  },
+  include: {},
+  libs: {},
+  lints: {},
+  options: {
+    all: true,
+  },
+  strict: {},
+};

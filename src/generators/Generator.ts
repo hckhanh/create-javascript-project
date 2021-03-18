@@ -11,10 +11,10 @@ export abstract class Generator {
     this.actions = this.initActions(configs, packages, userConfigs, formatter, packager);
   }
 
-  abstract generateConfigs(userConfigs: InquirerConfigs): [object | string, string[]];
+  abstract generateConfigs(userConfigs: InquirerConfigs): [object, string[]];
 
   abstract initActions(
-    configs: object | string,
+    configs: object,
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,

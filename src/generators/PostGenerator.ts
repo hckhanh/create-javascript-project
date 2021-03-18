@@ -12,7 +12,7 @@ export class PostGenerator extends Generator {
   }
 
   initActions(
-    configs: string,
+    configs: object,
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,
