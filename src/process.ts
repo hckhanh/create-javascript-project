@@ -1,6 +1,6 @@
 import { ChildProcessWithoutNullStreams } from "child_process";
 import { spawn } from "cross-spawn";
-import { readFile, rm, stat, writeFile } from "fs/promises";
+import { readdir, readFile, rm, stat, writeFile } from "fs/promises";
 import { Stats } from "node:fs";
 import { join } from "path";
 
@@ -81,6 +81,10 @@ export async function readContentFromFile(file: string): Promise<string> {
 
 export async function removeFile(file: string) {
   await rm(file, { force: true });
+}
+
+export async function readCurrentDir() {
+  return readdir(currentDir, { withFileTypes: true });
 }
 
 export function formatJson(obj: object): string {

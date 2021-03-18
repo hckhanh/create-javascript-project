@@ -1,4 +1,5 @@
-import { InquirerConfigs } from "../types";
+import { detectYarnVersion } from "../checker";
+import { PackagerType } from "../types";
 import { NpmPackager } from "./NpmPackager";
 import { Packager } from "./Packager";
 import { Yarn2Packager } from "./Yarn2Packager";
@@ -14,19 +15,21 @@ export class PackagerFactory {
     return this.factory;
   }
 
-  createPackager(configs: InquirerConfigs): Packager {
-    if (configs.configurations.includes("yarn2")) {
-      return new Yarn2Packager();
-    }
+  async createPackager(type: PackagerType): Promise<Packager> {
+    if (type === "yarn") {
+      const yarnVersion = await detectYarnVersion();
 
-    if (configs.packager === "yarn") {
+      if (yarnVersion === "yarn2") {
+        return new Yarn2Packager();
+      }
+
       return new YarnPackager();
     }
 
-    if (configs.packager === "npm") {
+    if (type === "npm") {
       return new NpmPackager();
     }
 
-    throw new Error(`"${configs.packager}" packager not implemented.`);
+    throw new Error(`"${type}" packager not implemented.`);
   }
 }

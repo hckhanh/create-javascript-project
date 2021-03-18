@@ -36,7 +36,7 @@ class CreateJavascriptProject extends Command {
     const formatter = formatterFactory.createFormatter(answers.format);
 
     const packagerFactory = PackagerFactory.getInstance();
-    const packager = packagerFactory.createPackager(answers);
+    const packager = await packagerFactory.createPackager(answers.packager);
 
     const generatorFactory = GeneratorFactory.getInstance();
     const generators = answers.configurations.map((type) =>
