@@ -12,8 +12,9 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "Prettier", value: "prettier" },
         { name: "Flow", value: "flow" },
         { name: "Yarn 2 (Berry)", value: "yarn2" },
+        { name: "Post-script", value: "post" },
       ],
-      default: ["yarn2", "eslint", "prettier"],
+      default: ["eslint", "prettier", "yarn2", "post"],
       validate: (input: GeneratorType[]) => {
         return input.length === 0 ? "At least one configuration need to be selected" : true;
       },
