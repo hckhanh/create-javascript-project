@@ -62,3 +62,6 @@ export const flowConfigs = {
   },
   strict: {},
 };
+
+export const getChangesetBaseRefs = (branch = "master") =>
+  [`${branch}`, `origin/${branch}`, `upstream/${branch}`].join(",");

@@ -37,6 +37,13 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       default: false,
     },
     {
+      type: "input",
+      name: "defaultBranch",
+      message: "What is default branch (git) of this project?",
+      when: (answers) => answers.configurations.includes("yarn2"),
+      default: "master",
+    },
+    {
       type: "list",
       name: "framework",
       message: "Which framework does your project use?",

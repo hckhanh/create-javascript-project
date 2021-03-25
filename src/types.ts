@@ -1,4 +1,4 @@
-export type Yarn2Configs = { zeroInstalls?: boolean };
+export type Yarn2Configs = { zeroInstalls?: boolean; defaultBranch?: string };
 
 export type Framework = "react" | "none";
 

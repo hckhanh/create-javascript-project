@@ -1,4 +1,4 @@
-import { nonZeroInstalls, zeroInstalls } from "../configs";
+import { getChangesetBaseRefs, nonZeroInstalls, zeroInstalls } from "../configs";
 import { removeFile, runCommand, withCurrentDir, writeContentToFile } from "../process";
 import { InquirerConfigs } from "../types";
 import { Action } from "./Action";
@@ -13,13 +13,17 @@ export class CreateYarn2ConfigsAction extends Action {
     await runCommand("yarn", ["set", "version", "berry"]);
 
     // Set nodeLinker mode to "node-modules"
-    await writeContentToFile(withCurrentDir("./.yarnrc.yml"), "nodeLinker: node-modules");
+    await runCommand("yarn", ["config", "set", "nodeLinker", "node-modules"]);
 
     // Add plugins
     this.userConfigs.typescript && (await runCommand("yarn", ["plugin", "import", "typescript"]));
     await runCommand("yarn", ["plugin", "import", "interactive-tools"]);
     await runCommand("yarn", ["plugin", "import", "stage"]);
     await runCommand("yarn", ["plugin", "import", "version"]);
+
+    // Set changesetBaseRefs to default branch (require version plugin)
+    const changesetBaseRefs = getChangesetBaseRefs(this.userConfigs.defaultBranch);
+    await runCommand("yarn", ["config", "set", "changesetBaseRefs", changesetBaseRefs]);
 
     // Remove old .yarnrc
     await removeFile(withCurrentDir("./.yarnrc"));
