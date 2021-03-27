@@ -1,5 +1,5 @@
 export const zeroInstalls = `
-# yarn 2 (Zero-Installs)
+# Yarn 2 (Zero-Installs + Plug'n'Play)
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -10,7 +10,7 @@ export const zeroInstalls = `
 `;
 
 export const nonZeroInstalls = `
-# yarn 2
+# Yarn 2
 .yarn/*
 !.yarn/patches
 !.yarn/releases
@@ -28,16 +28,23 @@ export const eslintBaseConfigs = {
   parserOptions: {
     ecmaVersion: 12,
   },
-  plugins: [],
   rules: {},
 };
 
 export const ignoreFiles = `
-build
-dist
+# Builds
 lib
-coverage
+dist
+build
+
+# Yarn
 .yarn
+.pnp.*
+
+# Test
+coverage
+
+# Misc
 te?mp
 `;
 
