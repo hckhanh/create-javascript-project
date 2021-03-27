@@ -47,6 +47,12 @@ export const postIgnoreFiles = `
 .vscode
 `;
 
+export const prettierConfigs = {
+  semi: true,
+  endOfLine: "lf",
+  singleQuote: false,
+};
+
 export const flowConfigs = {
   ignore: {
     "<PROJECT_ROOT>/node_modules/.*": true,

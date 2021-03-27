@@ -3,6 +3,7 @@ import { AddDependenciesAction } from "../actions/AddDependenciesAction";
 import { AddScriptsAction } from "../actions/AddScriptsAction";
 import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateIgnoreFileAction } from "../actions/CreateIgnoreFileAction";
+import { prettierConfigs } from "../configs";
 import { Formatter } from "../formatters/Formatter";
 import { Packager } from "../packagers/Packager";
 import { InquirerConfigs } from "../types";
@@ -10,15 +11,7 @@ import { Generator } from "./Generator";
 
 export class PrettierGenerator extends Generator {
   generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
-    return [
-      {
-        tabWidth: 2,
-        semi: true,
-        singleQuote: false,
-        trailingComma: "all",
-      },
-      ["prettier"],
-    ];
+    return [prettierConfigs, ["prettier"]];
   }
 
   initActions(
