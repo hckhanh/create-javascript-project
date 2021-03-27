@@ -60,6 +60,10 @@ export const prettierConfigs = {
   singleQuote: false,
 };
 
+export const prettierGitAttributeConfigs = `
+* text=auto eol=lf
+`;
+
 export const flowConfigs = {
   ignore: {
     "<PROJECT_ROOT>/node_modules/.*": true,

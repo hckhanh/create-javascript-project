@@ -3,7 +3,7 @@ import { AddDependenciesAction } from "../actions/AddDependenciesAction";
 import { AddScriptsAction } from "../actions/AddScriptsAction";
 import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateFileAction } from "../actions/CreateFileAction";
-import { ignoreFiles, prettierConfigs } from "../configs";
+import { ignoreFiles, prettierConfigs, prettierGitAttributeConfigs } from "../configs";
 import { Formatter } from "../formatters/Formatter";
 import { Packager } from "../packagers/Packager";
 import { InquirerConfigs } from "../types";
@@ -23,6 +23,7 @@ export class PrettierGenerator extends Generator {
   ): Action[] {
     return [
       new CreateConfigsFileAction(".prettierrc", configs, formatter),
+      new CreateFileAction(".gitattributes", prettierGitAttributeConfigs),
       new CreateFileAction(".prettierignore", ignoreFiles),
       new AddScriptsAction(
         { format: "prettier --write .", "check:prettier": "prettier --check ." },
