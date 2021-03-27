@@ -1,5 +1,5 @@
 import { Action } from "../actions/Action";
-import { CreateIgnoreFileAction } from "../actions/CreateIgnoreFileAction";
+import { CreateFileAction } from "../actions/CreateFileAction";
 import { postIgnoreFiles } from "../configs";
 import { Formatter } from "../formatters/Formatter";
 import { Packager } from "../packagers/Packager";
@@ -18,6 +18,6 @@ export class PostGenerator extends Generator {
     formatter: Formatter,
     packager: Packager,
   ): Action[] {
-    return [new CreateIgnoreFileAction(".gitignore", postIgnoreFiles)];
+    return [new CreateFileAction(".gitignore", postIgnoreFiles)];
   }
 }

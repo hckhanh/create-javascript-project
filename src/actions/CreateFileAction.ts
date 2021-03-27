@@ -1,9 +1,8 @@
-import { ignoreFiles } from "../configs";
 import { withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 
-export class CreateIgnoreFileAction extends Action {
-  constructor(private fileName: string, private content = ignoreFiles) {
+export class CreateFileAction extends Action {
+  constructor(private fileName: string, private content: string) {
     super();
   }
 
