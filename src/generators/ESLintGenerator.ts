@@ -33,7 +33,6 @@ export class ESLintGenerator extends Generator {
     if (userConfigs.framework === "react") {
       configs.extends.push("plugin:react/recommended");
       configs.parserOptions.ecmaFeatures = { jsx: true };
-      configs.plugins.push("react");
       configs.rules = {
         ...configs.rules,
         "react/jsx-uses-react": "off",
@@ -44,7 +43,6 @@ export class ESLintGenerator extends Generator {
 
     if (userConfigs.configurations.includes("flow")) {
       configs.extends.push("plugin:flowtype/recommended");
-      configs.plugins.push("flowtype");
       configs.rules = {
         ...configs.rules,
         "flowtype/no-types-missing-file-annotation": "off",
@@ -53,7 +51,6 @@ export class ESLintGenerator extends Generator {
     } else if (userConfigs.typescript) {
       configs.extends.push("plugin:@typescript-eslint/recommended");
       configs.parser = "@typescript-eslint/parser";
-      configs.plugins.push("@typescript-eslint");
       packages.push("typescript", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser");
     }
 
@@ -63,10 +60,6 @@ export class ESLintGenerator extends Generator {
 
     if (configs.extends.length === 1) {
       configs.extends = configs.extends.join("");
-    }
-
-    if (configs.plugins.length === 0) {
-      delete configs.plugins;
     }
 
     return [configs, packages];
