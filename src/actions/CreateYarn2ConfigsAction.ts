@@ -13,7 +13,8 @@ export class CreateYarn2ConfigsAction extends Action {
     await runCommand("yarn", ["set", "version", "berry"]);
 
     // Set nodeLinker mode to "node-modules"
-    await runCommand("yarn", ["config", "set", "nodeLinker", "node-modules"]);
+    !this.userConfigs.zeroInstalls &&
+      (await runCommand("yarn", ["config", "set", "nodeLinker", "node-modules"]));
 
     // Add plugins
     this.userConfigs.typescript && (await runCommand("yarn", ["plugin", "import", "typescript"]));
