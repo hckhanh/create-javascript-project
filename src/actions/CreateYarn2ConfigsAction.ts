@@ -30,6 +30,9 @@ export class CreateYarn2ConfigsAction extends Action {
     // Remove old .yarnrc
     await removeFile(withCurrentDir("./.yarnrc"));
 
+    // Remove package-lock.json
+    await removeFile(withCurrentDir("./package-lock.json"));
+
     // Configure .gitignore for yarn
     await writeContentToFile(
       withCurrentDir("./.gitignore"),
