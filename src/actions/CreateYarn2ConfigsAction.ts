@@ -24,7 +24,8 @@ export class CreateYarn2ConfigsAction extends Action {
 
     // Set changesetBaseRefs to default branch (require version plugin)
     const changesetBaseRefs = getChangesetBaseRefs(this.userConfigs.defaultBranch);
-    await runCommand("yarn", ["config", "set", "changesetBaseRefs", changesetBaseRefs]);
+    this.userConfigs.defaultBranch !== "master" &&
+      (await runCommand("yarn", ["config", "set", "changesetBaseRefs", changesetBaseRefs]));
 
     // Remove old .yarnrc
     await removeFile(withCurrentDir("./.yarnrc"));
