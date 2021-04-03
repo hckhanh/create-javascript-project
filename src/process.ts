@@ -60,7 +60,7 @@ export async function getFileStats(file: string): Promise<Stats | undefined> {
   }
 }
 
-export async function writeContentToFile(file: string, content: string, flag = "a+") {
+export async function writeContentToFile(file: string, content: string, flag = "a") {
   const stats = await getFileStats(file);
 
   if (stats) {

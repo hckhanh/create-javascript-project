@@ -31,15 +31,17 @@ export const eslintBaseConfigs = {
   rules: {},
 };
 
+export const ignoreYarn2 = `
+# Yarn
+.yarn
+.pnp.*
+`;
+
 export const ignoreFiles = `
 # Builds
 lib
 dist
 build
-
-# Yarn
-.yarn
-.pnp.*
 
 # Test
 coverage
