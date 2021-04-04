@@ -52,21 +52,23 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
       ],
     },
     {
+      type: "confirm",
+      name: "typescript",
+      message: "Does your project use TypeScript?",
+      when: (answers) => !answers.configurations.includes("flow"),
+    },
+    {
       type: "list",
       name: "module",
-      message: "What type of modules does your project use?",
+      message: "What type of module does your project use?",
       choices: [
         { name: "JavaScript modules (import/export)", value: "esm" },
         { name: "CommonJS (require/exports)", value: "commonjs" },
       ],
-      when: (answers) => !answers.configurations.includes("flow") && answers.framework === "none",
-    },
-    {
-      type: "confirm",
-      name: "typescript",
-      message: "Does your project use TypeScript?",
-      when: (answers) => !answers.configurations.includes("flow") && answers.module !== "commonjs",
-      default: (answers: InquirerConfigs) => answers.framework !== "none",
+      when: (answers) =>
+        !answers.configurations.includes("flow") &&
+        !answers.typescript &&
+        answers.framework === "none",
     },
     {
       type: "checkbox",
