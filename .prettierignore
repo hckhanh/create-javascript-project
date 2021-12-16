@@ -2,3 +2,4 @@ build
 dist
 lib
 coverage
+.yarn
