@@ -3,8 +3,8 @@ import { cli } from "cli-ux";
 import { checkPackageJson } from "./checker";
 import { FormatterFactory } from "./formatters/FormatterFactory";
 import { GeneratorFactory } from "./generators/GeneratorFactory";
-import { collectAnswers } from "./inquirer";
 import { PackagerFactory } from "./packagers/PackagerFactory";
+import { collectAnswers } from "./questions";
 
 class CreateJavascriptProject extends Command {
   static description = `Keep you away from boring procedures for new JavaScript/TypeScript project.1
@@ -15,7 +15,7 @@ class CreateJavascriptProject extends Command {
     4. Add accordingly scripts to "package.json" (optional)
 
   Note: technically, this tool is used for existing project.
-  It must be run in a project directory with "package.json" file.
+  It must be run in a project directory with a "package.json" file.
 `;
 
   static flags = {
