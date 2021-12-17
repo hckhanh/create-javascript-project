@@ -42,12 +42,33 @@ export const ignoreFiles = `
 lib
 dist
 build
+tmp
+out-tsc
+.build
 
 # Test
 coverage
 
+# IDEs and editors
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
 # Misc
 te?mp
+.sass-cache
+connect.lock
+*.log
+typings
 `;
 
 export const postIgnoreFiles = `
