@@ -431,7 +431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/dev-cli@npm:^1":
+"@oclif/dev-cli@npm:1.26.0":
   version: 1.26.0
   resolution: "@oclif/dev-cli@npm:1.26.0"
   dependencies:
@@ -562,7 +562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cross-spawn@npm:^6":
+"@types/cross-spawn@npm:6.0.2":
   version: 6.0.2
   resolution: "@types/cross-spawn@npm:6.0.2"
   dependencies:
@@ -581,14 +581,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ini@npm:^1":
+"@types/ini@npm:1.3.30":
   version: 1.3.30
   resolution: "@types/ini@npm:1.3.30"
   checksum: 6f687dbc1ae0606b34b88d756db157aa689205a6f7c98d30332a92998d355f8bc59cfbc47745ea1c6c5ab8a2148424a16fff4c738eebe4c34483b38e16a91bfc
   languageName: node
   linkType: hard
 
-"@types/inquirer@npm:^7":
+"@types/inquirer@npm:7.3.1":
   version: 7.3.1
   resolution: "@types/inquirer@npm:7.3.1"
   dependencies:
@@ -598,7 +598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^4":
+"@types/js-yaml@npm:4.0.0":
   version: 4.0.0
   resolution: "@types/js-yaml@npm:4.0.0"
   checksum: 09a992ce25da1db0aa321aac5952bebc6909ee350a288e1d9d2e729224c49895ff07044e98f83394264ce1c0f57ebab42f82c3be789a31e4fde6265f6d39eac0
@@ -626,7 +626,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16":
+"@types/node@npm:16.11.14":
   version: 16.11.14
   resolution: "@types/node@npm:16.11.14"
   checksum: 0bd4333fb4e56532db7f5174732268b18089913ddbb0e97957228e64f9fe3babf9923c77ce6f07d3d354445cfbb8d31b95c1f8be3c0f7426308bd8b93d3aaa02
@@ -1308,13 +1308,13 @@ __metadata:
   dependencies:
     "@oclif/command": 1.8.15
     "@oclif/config": 1.18.2
-    "@oclif/dev-cli": ^1
+    "@oclif/dev-cli": 1.26.0
     "@oclif/plugin-help": 5.1.10
-    "@types/cross-spawn": ^6
-    "@types/ini": ^1
-    "@types/inquirer": ^7
-    "@types/js-yaml": ^4
-    "@types/node": ^16
+    "@types/cross-spawn": 6.0.2
+    "@types/ini": 1.3.30
+    "@types/inquirer": 7.3.1
+    "@types/js-yaml": 4.0.0
+    "@types/node": 16.11.14
     cli-ux: 6.0.6
     cross-spawn: 7.0.3
     eslint: 7.32.0
@@ -1326,8 +1326,8 @@ __metadata:
     inquirer: 8.2.0
     js-yaml: 4.1.0
     prettier: 2.5.1
-    rimraf: ^3.0.2
-    ts-node: ^9.1.1
+    rimraf: 3.0.2
+    ts-node: 9.1.1
     tslib: 2.3.1
     typescript: 4.5.4
   bin:
@@ -3260,6 +3260,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rimraf@npm:3.0.2, rimraf@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "rimraf@npm:3.0.2"
+  dependencies:
+    glob: ^7.1.3
+  bin:
+    rimraf: bin.js
+  checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
+  languageName: node
+  linkType: hard
+
 "rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
@@ -3268,17 +3279,6 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: cdc7f6eacb17927f2a075117a823e1c5951792c6498ebcce81ca8203454a811d4cf8900314154d3259bb8f0b42ab17f67396a8694a54cae3283326e57ad250cd
-  languageName: node
-  linkType: hard
-
-"rimraf@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "rimraf@npm:3.0.2"
-  dependencies:
-    glob: ^7.1.3
-  bin:
-    rimraf: bin.js
-  checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
   languageName: node
   linkType: hard
 
@@ -3729,7 +3729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^9.1.1":
+"ts-node@npm:9.1.1":
   version: 9.1.1
   resolution: "ts-node@npm:9.1.1"
   dependencies:
