@@ -1,13 +1,13 @@
-import { Action } from "../actions/Action";
+import type { Action } from "../actions/Action";
 import { AddDependenciesAction } from "../actions/AddDependenciesAction";
 import { AddScriptsAction } from "../actions/AddScriptsAction";
 import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateFlowConfigsAction } from "../actions/CreateFlowConfigsAction";
 import { flowConfigs } from "../configs";
-import { Formatter } from "../formatters/Formatter";
+import type { Formatter } from "../formatters/Formatter";
 import { IniFormatter } from "../formatters/IniFormatter";
-import { Packager } from "../packagers/Packager";
-import { InquirerConfigs } from "../types";
+import type { Packager } from "../packagers/Packager";
+import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class FlowGenerator extends Generator {

@@ -1,4 +1,4 @@
-import { Formatter } from "../formatters/Formatter";
+import type { Formatter } from "../formatters/Formatter";
 import { withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 

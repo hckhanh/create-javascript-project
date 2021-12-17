@@ -1,6 +1,6 @@
 import { getChangesetBaseRefs, nonZeroInstalls, zeroInstalls } from "../configs";
 import { removeFile, runCommand, withCurrentDir, writeContentToFile } from "../process";
-import { InquirerConfigs } from "../types";
+import type { InquirerConfigs } from "../types";
 import { Action } from "./Action";
 
 export class CreateYarn2ConfigsAction extends Action {

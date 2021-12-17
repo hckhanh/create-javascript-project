@@ -1,4 +1,4 @@
-import { Packager } from "../packagers/Packager";
+import type { Packager } from "../packagers/Packager";
 import { Action } from "./Action";
 
 export class AddDependenciesAction extends Action {

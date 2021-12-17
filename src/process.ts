@@ -1,7 +1,7 @@
-import { ChildProcessWithoutNullStreams } from "child_process";
+import type { ChildProcessWithoutNullStreams } from "child_process";
 import { spawn } from "cross-spawn";
 import { readdir, readFile, rm, stat, writeFile } from "fs/promises";
-import { Stats } from "node:fs";
+import type { Stats } from "node:fs";
 import { join } from "path";
 
 export const currentDir = process.cwd();

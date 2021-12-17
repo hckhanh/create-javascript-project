@@ -1,12 +1,12 @@
-import { Action } from "../actions/Action";
+import type { Action } from "../actions/Action";
 import { AddDependenciesAction } from "../actions/AddDependenciesAction";
 import { AddScriptsAction } from "../actions/AddScriptsAction";
 import { CreateConfigsFileAction } from "../actions/CreateConfigsFileAction";
 import { CreateFileAction } from "../actions/CreateFileAction";
 import { ignoreFiles, prettierConfigs, prettierGitAttributeConfigs } from "../configs";
-import { Formatter } from "../formatters/Formatter";
-import { Packager } from "../packagers/Packager";
-import { InquirerConfigs } from "../types";
+import type { Formatter } from "../formatters/Formatter";
+import type { Packager } from "../packagers/Packager";
+import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class PrettierGenerator extends Generator {

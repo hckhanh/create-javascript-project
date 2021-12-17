@@ -1,9 +1,9 @@
-import { Formatter } from "../formatters/Formatter";
-import { Packager } from "../packagers/Packager";
-import { GeneratorType, InquirerConfigs } from "../types";
+import type { Formatter } from "../formatters/Formatter";
+import type { Packager } from "../packagers/Packager";
+import type { GeneratorType, InquirerConfigs } from "../types";
 import { ESLintGenerator } from "./ESLintGenerator";
 import { FlowGenerator } from "./FlowGenerator";
-import { Generator } from "./Generator";
+import type { Generator } from "./Generator";
 import { PostGenerator } from "./PostGenerator";
 import { PrettierGenerator } from "./PrettierGenerator";
 import { Yarn2Generator } from "./Yarn2Generator";

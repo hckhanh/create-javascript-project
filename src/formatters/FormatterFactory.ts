@@ -1,4 +1,4 @@
-import { ConfigsFileFormat } from "../types";
+import type { ConfigsFileFormat } from "../types";
 import { Formatter } from "./Formatter";
 import { JsFormatter } from "./JsFormatter";
 import { JsonFormatter } from "./JsonFormatter";

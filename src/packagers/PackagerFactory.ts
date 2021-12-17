@@ -1,7 +1,7 @@
 import { detectYarnVersion } from "../checker";
-import { PackagerType } from "../types";
+import type { PackagerType } from "../types";
 import { NpmPackager } from "./NpmPackager";
-import { Packager } from "./Packager";
+import type { Packager } from "./Packager";
 import { Yarn2Packager } from "./Yarn2Packager";
 import { YarnPackager } from "./YarnPackager";
 

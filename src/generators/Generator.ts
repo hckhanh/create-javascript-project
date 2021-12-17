@@ -1,7 +1,7 @@
-import { Action } from "../actions/Action";
-import { Formatter } from "../formatters/Formatter";
-import { Packager } from "../packagers/Packager";
-import { InquirerConfigs } from "../types";
+import type { Action } from "../actions/Action";
+import type { Formatter } from "../formatters/Formatter";
+import type { Packager } from "../packagers/Packager";
+import type { InquirerConfigs } from "../types";
 
 export abstract class Generator {
   actions: Action[];

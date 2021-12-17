@@ -1,5 +1,5 @@
 import { prompt } from "inquirer";
-import { GeneratorType, InquirerConfigs } from "./types";
+import type { GeneratorType, InquirerConfigs } from "./types";
 
 export async function collectAnswers(): Promise<InquirerConfigs> {
   const answers = await prompt<InquirerConfigs>([
