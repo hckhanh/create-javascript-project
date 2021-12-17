@@ -11,7 +11,7 @@ import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class FlowGenerator extends Generator {
-  generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
+  generateConfigs(userConfigs: InquirerConfigs): [Record<string, unknown>, string[]] {
     const configs: any = { ...flowConfigs };
     const packages = ["flow-bin", "flow-typed"];
 
@@ -24,7 +24,7 @@ export class FlowGenerator extends Generator {
   }
 
   initActions(
-    configs: object,
+    configs: Record<string, unknown>,
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,

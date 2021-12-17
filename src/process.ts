@@ -1,8 +1,8 @@
-import type { ChildProcessWithoutNullStreams } from "child_process";
+import type { ChildProcessWithoutNullStreams } from "node:child_process";
 import { spawn } from "cross-spawn";
-import { readdir, readFile, rm, stat, writeFile } from "fs/promises";
+import { readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import type { Stats } from "node:fs";
-import { join } from "path";
+import { join } from "node:path";
 
 export const currentDir = process.cwd();
 
@@ -87,6 +87,6 @@ export async function readCurrentDir() {
   return readdir(currentDir, { withFileTypes: true });
 }
 
-export function formatJson(obj: object): string {
+export function formatJson(obj: Record<string, unknown>): string {
   return JSON.stringify(obj, null, 2);
 }

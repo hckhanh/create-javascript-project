@@ -10,12 +10,12 @@ import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class PrettierGenerator extends Generator {
-  generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
+  generateConfigs(_userConfigs: InquirerConfigs): [Record<string, unknown>, string[]] {
     return [prettierConfigs, ["prettier"]];
   }
 
   initActions(
-    configs: object,
+    configs: Record<string, unknown>,
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,

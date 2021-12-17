@@ -10,7 +10,7 @@ import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class ESLintGenerator extends Generator {
-  generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
+  generateConfigs(userConfigs: InquirerConfigs): [Record<string, unknown>, string[]] {
     const configs: any = eslintBaseConfigs;
     const packages = ["eslint"];
 
@@ -66,7 +66,7 @@ export class ESLintGenerator extends Generator {
   }
 
   initActions(
-    configs: object,
+    configs: Record<string, unknown>,
     packages: string[],
     userConfigs: InquirerConfigs,
     formatter: Formatter,

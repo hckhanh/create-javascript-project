@@ -3,7 +3,11 @@ import { withCurrentDir, writeContentToFile } from "../process";
 import { Action } from "./Action";
 
 export class CreateConfigsFileAction extends Action {
-  constructor(private fileName: string, private configs: object, private formatter: Formatter) {
+  constructor(
+    private fileName: string,
+    private configs: Record<string, unknown>,
+    private formatter: Formatter,
+  ) {
     super();
   }
 

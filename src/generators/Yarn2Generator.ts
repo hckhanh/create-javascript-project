@@ -7,15 +7,15 @@ import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class Yarn2Generator extends Generator {
-  generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
+  generateConfigs(_userConfigs: InquirerConfigs): [Record<string, unknown>, string[]] {
     return [{}, []];
   }
 
   initActions(
-    configs: object,
-    packages: string[],
+    _configs: Record<string, unknown>,
+    _packages: string[],
     userConfigs: InquirerConfigs,
-    formatter: Formatter,
+    _formatter: Formatter,
   ): Action[] {
     return [
       new CreateYarn2ConfigsAction(userConfigs),

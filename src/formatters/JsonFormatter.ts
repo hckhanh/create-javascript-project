@@ -2,7 +2,7 @@ import { formatJson } from "../process";
 import { Formatter } from "./Formatter";
 
 export class JsonFormatter extends Formatter {
-  format(configs: object) {
+  format(configs: Record<string, unknown>) {
     return formatJson(configs);
   }
 

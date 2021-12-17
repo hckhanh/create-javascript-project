@@ -7,16 +7,16 @@ import type { InquirerConfigs } from "../types";
 import { Generator } from "./Generator";
 
 export class PostGenerator extends Generator {
-  generateConfigs(userConfigs: InquirerConfigs): [object, string[]] {
+  generateConfigs(_userConfigs: InquirerConfigs): [Record<string, unknown>, string[]] {
     return [{}, []];
   }
 
   initActions(
-    configs: object,
-    packages: string[],
-    userConfigs: InquirerConfigs,
-    formatter: Formatter,
-    packager: Packager,
+    _configs: Record<string, unknown>,
+    _packages: string[],
+    _userConfigs: InquirerConfigs,
+    _formatter: Formatter,
+    _packager: Packager,
   ): Action[] {
     return [new CreateFileAction(".gitignore", postIgnoreFiles)];
   }

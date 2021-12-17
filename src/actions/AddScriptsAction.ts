@@ -2,7 +2,7 @@ import { formatJson, readContentFromFile, withCurrentDir, writeContentToFile } f
 import { Action } from "./Action";
 
 export class AddScriptsAction extends Action {
-  constructor(private scripts: object, private enable: boolean) {
+  constructor(private scripts: Record<string, unknown>, private enable: boolean) {
     super();
   }
 

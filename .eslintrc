@@ -1,8 +1,11 @@
 {
+  "root": true,
   "extends": ["oclif", "oclif-typescript", "plugin:prettier/recommended"],
   "rules": {
-    "quotes": ["error", "double"],
     "no-await-in-loop": "off",
+    "node/no-missing-import": 1,
+    "quotes": ["error", "double"],
+    "unicorn/no-for-loop": "off",
     "unicorn/filename-case": "off"
   }
 }

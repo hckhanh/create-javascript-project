@@ -1,5 +1,5 @@
 export abstract class Formatter {
-  abstract format(configs: object): string;
+  abstract format(configs: Record<string, unknown>): string;
 
   abstract formatFileName(fileName: string): string;
 }
