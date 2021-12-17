@@ -91,7 +91,7 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
     {
       type: "confirm",
       name: "scripts",
-      message: "Do want to add commands (scripts) of configurations to package.json?",
+      message: "Do want to add commands (scripts) of above configurations to package.json?",
     },
     {
       type: "list",
@@ -101,13 +101,10 @@ export async function collectAnswers(): Promise<InquirerConfigs> {
         { name: "Yarn", value: "yarn" },
         { name: "NPM", value: "npm" },
       ],
+      default: "yarn",
       when: (answers) => !answers.configurations.includes("yarn2"),
     },
   ]);
-
-  if (answers.configurations.includes("yarn2")) {
-    answers.packager = "yarn";
-  }
 
   return answers;
 }
