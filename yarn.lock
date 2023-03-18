@@ -588,13 +588,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/inquirer@npm:^7":
-  version: 7.3.1
-  resolution: "@types/inquirer@npm:7.3.1"
+"@types/inquirer@npm:^7.3.1":
+  version: 7.3.3
+  resolution: "@types/inquirer@npm:7.3.3"
   dependencies:
     "@types/through": "*"
     rxjs: ^6.4.0
-  checksum: 93b06308b0caae00889bf982a198871013d30a847cf3aacc06d9ccce75a9d778e401d3e5228c12d02ebbec803980b620c4f6570d29016c40f69a154b712576dc
+  checksum: 49b21d883ab533dbb84b400fa1aeab2638c37b87978d16f15636316c8d9f70d93a185479cf32081d9013fe2b362db05a83bdc3725771cc93d8bdab9182a96ab9
   languageName: node
   linkType: hard
 
@@ -1312,7 +1312,7 @@ __metadata:
     "@oclif/plugin-help": 5.1.10
     "@types/cross-spawn": ^6
     "@types/ini": ^1
-    "@types/inquirer": ^7
+    "@types/inquirer": ^7.3.1
     "@types/js-yaml": ^4
     "@types/node": ^16
     cli-ux: 6.0.6
