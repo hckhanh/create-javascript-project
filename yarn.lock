@@ -581,10 +581,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ini@npm:^1":
-  version: 1.3.30
-  resolution: "@types/ini@npm:1.3.30"
-  checksum: 6f687dbc1ae0606b34b88d756db157aa689205a6f7c98d30332a92998d355f8bc59cfbc47745ea1c6c5ab8a2148424a16fff4c738eebe4c34483b38e16a91bfc
+"@types/ini@npm:^1.3.30":
+  version: 1.3.31
+  resolution: "@types/ini@npm:1.3.31"
+  checksum: aca4fed0cd68f6693fd64e1b7d188a9c8c6f5823b2e3501b0570135555d4184d7d0dfba2c1afb3514c94cb21ece732f4467ea98c827d1b1b98716827ac9de680
   languageName: node
   linkType: hard
 
@@ -1311,7 +1311,7 @@ __metadata:
     "@oclif/dev-cli": ^1
     "@oclif/plugin-help": 5.1.10
     "@types/cross-spawn": ^6
-    "@types/ini": ^1
+    "@types/ini": ^1.3.30
     "@types/inquirer": ^7
     "@types/js-yaml": ^4
     "@types/node": ^16
