@@ -346,19 +346,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/command@npm:1.8.15":
-  version: 1.8.15
-  resolution: "@oclif/command@npm:1.8.15"
+"@oclif/command@npm:1.8.36":
+  version: 1.8.36
+  resolution: "@oclif/command@npm:1.8.36"
   dependencies:
     "@oclif/config": ^1.18.2
-    "@oclif/errors": ^1.3.5
+    "@oclif/errors": ^1.3.6
     "@oclif/help": ^1.0.1
-    "@oclif/parser": ^3.8.6
+    "@oclif/parser": ^3.8.17
     debug: ^4.1.1
-    semver: ^7.3.2
+    semver: ^7.5.4
   peerDependencies:
     "@oclif/config": ^1
-  checksum: 7e2fbd9ea9dcdb840754bd6088cd5c62a0b32d5675aa488f60bd2d916a13bc567656ad6301045071aec7e739ef62dfbd333ea5b9d8a8cda2cebb1140000a9d76
+  checksum: c3b39149a07b0c8b19c486bec14685371e14786049a56b382cb81798fc93f0d41f2482764bdb49814c7fc672b9fc4bf05b1d462a16ee567e5a42a940db5410ad
   languageName: node
   linkType: hard
 
@@ -454,7 +454,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/errors@npm:1.3.5, @oclif/errors@npm:^1.3.5":
+"@oclif/errors@npm:1.3.5":
   version: 1.3.5
   resolution: "@oclif/errors@npm:1.3.5"
   dependencies:
@@ -477,6 +477,19 @@ __metadata:
     strip-ansi: ^6.0.0
     wrap-ansi: ^7.0.0
   checksum: 1dd0d93650acbdbdd343ca11c8b5d0f9952258172f430c06a26e7d65ffe304d062b14923548eb88751bbf1c2ced708b7f4ee1e86566c8d2e6a1500846da60efb
+  languageName: node
+  linkType: hard
+
+"@oclif/errors@npm:^1.3.6":
+  version: 1.3.6
+  resolution: "@oclif/errors@npm:1.3.6"
+  dependencies:
+    clean-stack: ^3.0.0
+    fs-extra: ^8.1
+    indent-string: ^4.0.0
+    strip-ansi: ^6.0.1
+    wrap-ansi: ^7.0.0
+  checksum: be9f686e30f91f792aeaba635e2473da5494c1d25bf98a55ff766aca52b78fd3cb2c75902b6c24f21d6c893841a45a69367645971e793cc677d643eeb39f146f
   languageName: node
   linkType: hard
 
@@ -516,15 +529,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/parser@npm:^3.8.6":
-  version: 3.8.6
-  resolution: "@oclif/parser@npm:3.8.6"
+"@oclif/parser@npm:^3.8.17":
+  version: 3.8.17
+  resolution: "@oclif/parser@npm:3.8.17"
   dependencies:
-    "@oclif/errors": ^1.2.2
+    "@oclif/errors": ^1.3.6
     "@oclif/linewrap": ^1.0.0
     chalk: ^4.1.0
-    tslib: ^2.0.0
-  checksum: 833450bafb86630f4b887e52477136abe368e1702f93d4aa81ef26bb208afa2183d48ca833898f8164cd56ed8489564fc59d4f58c7b6ea9d3d918a7754be7535
+    tslib: ^2.6.2
+  checksum: 269d258842ca0ed27100dbc3ac3da505dcd9735e6d1916838d35cb7a93bb27e0d39e1c2239d1b8b150231e473d19c4d184f78e92ad2732377f1de2e2d1f454fb
   languageName: node
   linkType: hard
 
@@ -1306,7 +1319,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "create-javascript-project@workspace:."
   dependencies:
-    "@oclif/command": 1.8.15
+    "@oclif/command": 1.8.36
     "@oclif/config": 1.18.2
     "@oclif/dev-cli": ^1
     "@oclif/plugin-help": 5.1.10
@@ -3386,6 +3399,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.5.4":
+  version: 7.5.4
+  resolution: "semver@npm:7.5.4"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: 12d8ad952fa353b0995bf180cdac205a4068b759a140e5d3c608317098b3575ac2f1e09182206bf2eb26120e1c0ed8fb92c48c592f6099680de56bb071423ca3
+  languageName: node
+  linkType: hard
+
 "shebang-command@npm:^1.2.0":
   version: 1.2.0
   resolution: "shebang-command@npm:1.2.0"
@@ -3768,6 +3792,13 @@ __metadata:
   version: 2.1.0
   resolution: "tslib@npm:2.1.0"
   checksum: aa189c8179de0427b0906da30926fd53c59d96ec239dff87d6e6bc831f608df0cbd6f77c61dabc074408bd0aa0b9ae4ec35cb2c15f729e32f37274db5730cb78
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.6.2":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
