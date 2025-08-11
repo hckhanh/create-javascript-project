@@ -87,7 +87,7 @@
     "@types/cross-spawn": "^6",
     "@types/ini": "^1",
     "@types/inquirer": "^7",
-    "@types/js-yaml": "^4",
+    "@types/js-yaml": "^4.0.0",
     "@types/node": "^16",
     "eslint": "7.32.0",
     "eslint-config-oclif": "4.0.0",
