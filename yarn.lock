@@ -598,10 +598,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^4":
-  version: 4.0.0
-  resolution: "@types/js-yaml@npm:4.0.0"
-  checksum: 09a992ce25da1db0aa321aac5952bebc6909ee350a288e1d9d2e729224c49895ff07044e98f83394264ce1c0f57ebab42f82c3be789a31e4fde6265f6d39eac0
+"@types/js-yaml@npm:^4.0.0":
+  version: 4.0.9
+  resolution: "@types/js-yaml@npm:4.0.9"
+  checksum: e5e5e49b5789a29fdb1f7d204f82de11cb9e8f6cb24ab064c616da5d6e1b3ccfbf95aa5d1498a9fbd3b9e745564e69b4a20b6c530b5a8bbb2d4eb830cda9bc69
   languageName: node
   linkType: hard
 
@@ -1313,7 +1313,7 @@ __metadata:
     "@types/cross-spawn": ^6
     "@types/ini": ^1
     "@types/inquirer": ^7
-    "@types/js-yaml": ^4
+    "@types/js-yaml": ^4.0.0
     "@types/node": ^16
     cli-ux: 6.0.6
     cross-spawn: 7.0.3
