@@ -83,7 +83,7 @@
     "tslib": "2.3.1"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1",
+    "@oclif/dev-cli": "^1.26.0",
     "@types/cross-spawn": "^6",
     "@types/ini": "^1",
     "@types/inquirer": "^7",
